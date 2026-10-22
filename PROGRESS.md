@@ -14,10 +14,14 @@ GitHub repository: SHAZAN01/csc582-options-asg2.
 | fa741a9 | October 21 | Progress and bundle exclusion |
 | 2004e79 | October 22 | Domain annotations |
 | d237bcc | October 22 | Class/sequence diagrams, rationale, audit and preparation |
+| e9dcb3d | October 22 | Explicit account settlement and simpler state responsibilities |
 
-Five genuine commits across two days were verified. The requirement for
-20 meaningful commits across seven days is unmet. This package cannot repair
-elapsed working days. Preserve real history and recount after real revisions.
+Six genuine commits across two days were verified at e9dcb3d. The published
+20-commit/seven-day requirement is unmet. The student supplied a message
+referring to eight commits; its wording and interpretation are recorded in
+SUBMISSION_NOTES.md. Two distinct substantive updates can bring the real
+count to eight when committed. Dates remain truthful; the instructor must
+confirm how the reported adjustment applies.
 
 ## Verified work
 
@@ -30,12 +34,15 @@ elapsed working days. Preserve real history and recount after real revisions.
 - The original three diagram scripts parsed and rendered locally.
 - This revision exposes the Account transfers in the expiry trace and keeps
   state, contract and ledger responsibilities consistent. See validation.md
-  for checks on the delivered revision. Installation/commit of this revision
-  is not yet verified by this file.
+  for checks on the delivered revision. Installation/commit of that revision
+  was subsequently verified as e9dcb3d. The current invariant and submission-note
+  update has not yet been committed at this preparation checkpoint.
 
 ## Remaining work
 
-- Install this revision, inspect its diff, commit and push the actual changes.
+- Install the invariant/submission-note update and inspect its diff.
+- Commit the two actual changes separately and verify the resulting count.
+- Push the real history and retain the original instructor correspondence.
 - Open all three canonical diagram files in the final viewing environment.
 - Read the model, rationale and explanation notes and identify anything unclear.
 - Record actual student changes or verified understanding honestly in AI_USAGE.md.

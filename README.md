@@ -17,6 +17,7 @@ ambiguities. Significant assistance is disclosed in `AI_USAGE.md`.
 | `design/audit.md` | Coverage, operation and lifecycle review. |
 | `design/study-guide.md` | Explanations and open-ended preparation questions. |
 | `PROGRESS.md` | Verified checkpoints and remaining work. |
+| `SUBMISSION_NOTES.md` | Reported instructor guidance on commit history and the verified history checkpoint. |
 
 Each diagram file contains one Mermaid code block and renders in GitHub's
 Markdown view. The Markdown source is the graded artifact. The temporary
