@@ -1,7 +1,7 @@
 # Design rationale
 
 This rationale describes the accompanying class and sequence diagrams. It is
-an AI-assisted design draft that the student must review and be able to defend.
+AI-assisted. The student must review these choices and be able to defend them.
 The requirements source is `OPTIONS-MARKETS.md`; decisions below are explicitly
 distinguished from statements in that source.
 

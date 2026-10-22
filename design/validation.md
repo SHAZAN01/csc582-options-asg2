@@ -1,6 +1,6 @@
-# Candidate package validation
+# Final package validation
 
-Checked on October 22, 2026. This record covers the revised downloadable
+Checked on October 22, 2026. This record covers the final downloadable update
 files; it does not certify a later edit or the student's eventual bundle.
 
 | Check | Result |
@@ -31,6 +31,9 @@ model specifications, not claims of executable enforcement or a market test
 suite. Human review and rendering in the student's final viewing environment
 remain necessary before submission.
 
-The delivered revision was checked to contain the three root Markdown files and seven
-files under design/. Temporary validation scripts, images, dependencies,
-student bundles and the distribution PDF are not part of this update.
+The final archive contains four root Markdown files, eight design Markdown
+files and .gitignore. Source requirements map to the class model and scenario
+evidence in traceability.md. The original domain prose is preserved after
+removing the delimited annotations. The archive includes no simulation code,
+validation scripts, images, dependencies, generated bundles, .git directory,
+obsolete submission-note file, distribution PDF or munger.py.

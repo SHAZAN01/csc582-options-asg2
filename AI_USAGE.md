@@ -124,8 +124,8 @@ delivery confirmation remain unverified.
 
 - **Date:** 2026-10-22
 - **Tool:** ChatGPT with source review and local Mermaid validation
-- **Related commits:** d237bcc is the verified installed checkpoint. The
-  commit containing this entry records the revised package after installation.
+- **Related commits:** The reviewed settlement revision was installed and
+  pushed as e9dcb3d, subsequently verified on GitHub.
 - **Request:** Assess the actual bundle against the rubric and strengthen
   weak areas. The student asked for a higher mark.
 - **Produced:** Revised class model and expiry sequence, consistent rationale
@@ -145,29 +145,43 @@ delivery confirmation remain unverified.
   A checklist response alone does not establish delivery of the bundle.
   Instructor confirmation of the delivery route remains necessary.
 
-### Entry 6 — Invariant clarification and reported instructor guidance
+### Entry 6 — Clarification of ownership and failure invariants
 
 - **Date:** 2026-10-22
-- **Tool:** ChatGPT with read-only GitHub verification and Markdown preparation
-- **Verified checkpoint:** e9dcb3d, six actual commits across two Pacific dates.
-  The installed reviewed model matches the assistant's checked revision.
-- **Request:** Strengthen remaining weaknesses and document a student-provided
-  instructor message concerning availability and eight commits.
-- **Produced:** Inline domain review notes, precise ownership and transfer
-  invariants, a writer re-pairing example, a failure/transition audit, a
-  submission note transcribing the relevant reported guidance, and updated
-  README/progress records.
-- **Review boundaries:** The original email was not accessed. Its transcript
-  was supplied by the student. The package records the source and the limited
-  interpretation rather than asserting an authenticated blanket grading waiver.
-- **History:** No dates or existing commits were changed. Two separate commits
-  are proposed for substantive invariant clarification and submission records.
-  Eight commits are not claimed until those real commits exist in the history.
-- **Verification:** Removing delimited annotations preserves the original
-  domain prose. The three Mermaid sources are unchanged from the rendered,
-  operation-checked e9dcb3d revision. No executable market code is added.
-- **Student understanding:** Not established by preparing this package.
-  Student review and in-class explanation remain necessary.
+- **Tool:** ChatGPT with read-only GitHub checks and Markdown preparation
+- **Related commits:** The invariant clarification was committed as b538902.
+  The earlier six-commit checkpoint was e9dcb3d.
+- **Produced:** Inline domain review notes, explicit paired-ownership and
+  transfer-conservation invariants, a worked same-definition writer swap,
+  and a failure/transition audit.
+- **Changes:** Distinguish zero-sum option positions from balanced transfer
+  deltas, specify publication of both parties together, and specify no
+  effects for failed or repeated exercise. No diagram operations changed.
+- **Verification:** Original domain prose remains unchanged after stripping
+  the annotation blocks. Diagram sources match the previously rendered and
+  operation-checked revision. No market implementation was added.
+- **Review:** Student understanding is not established by these assistant-
+  authored clarifications. Real dates and actual commit counts are retained.
+
+### Entry 7 — Final package consolidation and consistency review
+
+- **Date:** 2026-10-22
+- **Tool:** ChatGPT with read-only GitHub verification and local file checks
+- **Request:** Provide one consistent final update and steps to commit/push it.
+- **Verified history:** Eight real commits through 1aaf329 across two Pacific
+  dates. The current local cleanup was reported in the student's Terminal
+  transcript; it had not yet been committed at this preparation checkpoint.
+- **Produced:** Consolidated existing diagram/rationale sources with the
+  invariant review, a source-to-model traceability map, refreshed README,
+  progress and validation records, and an ignore rule for macOS metadata.
+- **Changes:** Removed the obsolete submission-note file from the working
+  package, retained accurate history, and corrected stale checkpoint language.
+  No completed student review or grade is claimed. No market implementation
+  or in-class extension was supplied.
+- **Verification:** The validation record describes the final packaged sources.
+  Existing git history and the supplied bundler were not changed.
+- **Student review:** Still required. These remain assistant-authored design
+  choices and study explanations that the student must understand in class.
 
 ## Where the agent or tool workflow needed correction
 

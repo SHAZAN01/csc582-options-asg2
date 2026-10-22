@@ -1,62 +1,53 @@
 # CSC 582 Assignment 2 — Progress
 
-Student submission name: Shazan Ansar. Student ID: 213063554.
-Due: Friday, October 23, 2026, at 5:30 PM.
-Local repository: ~/csc582-options.
-GitHub repository: SHAZAN01/csc582-options-asg2.
+Student: Shazan Ansar. Student ID: 213063554.
+Due: October 23, 2026, 5:30 PM. Repository: ~/csc582-options.
+Remote: SHAZAN01/csc582-options-asg2.
 
-## Verified checkpoint on October 22
+## Verified checkpoint, October 22
 
 | Commit | Pacific date | Work |
 |---|---|---|
-| 6b8215d | October 21 | Verified distribution and independent repository |
-| 9f0d1a8 | October 21 | AI disclosure and Mermaid walkthrough |
+| 6b8215d | October 21 | Verified package and independent repository |
+| 9f0d1a8 | October 21 | AI disclosure and Mermaid rehearsal |
 | fa741a9 | October 21 | Progress and bundle exclusion |
 | 2004e79 | October 22 | Domain annotations |
-| d237bcc | October 22 | Class/sequence diagrams, rationale, audit and preparation |
-| e9dcb3d | October 22 | Explicit account settlement and simpler state responsibilities |
+| d237bcc | October 22 | Model, sequences, rationale and preparation |
+| e9dcb3d | October 22 | Explicit settlement trace and simpler state responsibilities |
+| b538902 | October 22 | Paired ownership and resolution invariants |
+| 1aaf329 | October 22 | Submission documentation and progress |
 
-Six genuine commits across two days were verified at e9dcb3d. The published
-20-commit/seven-day requirement is unmet. The student supplied a message
-referring to eight commits; its wording and interpretation are recorded in
-SUBMISSION_NOTES.md. Two distinct substantive updates can bring the real
-count to eight when committed. Dates remain truthful; the instructor must
-confirm how the reported adjustment applies.
+GitHub confirms eight actual commits across two Pacific dates. The published
+20-commit/seven-day requirement is not met. Recount after subsequent real work;
+this record is a checkpoint rather than a prediction of the final count.
 
-## Verified work
+## Verified preparation
 
-- Original distribution checksums passed; independent repository was created.
-- GitHub push through d237bcc was verified; practice diagrams were removed.
-- The domain annotations and ten model-package files matched the checked sources.
-- The student's generated take-home bundle was inspected: correct ID, take-home
-  metadata, required source files, and unchanged munger.py digest.
-- FILES NOT BUNDLED contained only the supplied PDF and three figures.
-- The original three diagram scripts parsed and rendered locally.
-- This revision exposes the Account transfers in the expiry trace and keeps
-  state, contract and ledger responsibilities consistent. See validation.md
-  for checks on the delivered revision. Installation/commit of that revision
-  was subsequently verified as e9dcb3d. The current invariant and submission-note
-  update has not yet been committed at this preparation checkpoint.
+- Original package checksums passed before the independent repository was made.
+- Required domain annotations, three canonical diagrams and rationale are present.
+- Both account sides, delivery, strike cash, assignment and terminal transition
+  are explicit in the expiry trace. The put trace expands pricing delegation.
+- The paired-ownership and conservation clarifications were committed in b538902.
+- Three Mermaid sources parsed and rendered. All 24 calls match operations and
+  argument counts, with Holder and Writer resolving to Account.
+- The earlier inspected bundle had correct ID and unchanged munger.py digest;
+  only the supplied PDF and figures were excluded.
+- The latest final package adds requirement traceability, refreshes documentation,
+  and ignores .DS_Store. It preserves existing history and diagram semantics.
+- The student's Terminal transcript shows that the clean update was extracted
+  and the obsolete submission-note file was removed locally. That cleanup is
+  not yet committed at this checkpoint.
 
-## Remaining work
+## Remaining actions
 
-- Install the invariant/submission-note update and inspect its diff.
-- Commit the two actual changes separately and verify the resulting count.
-- Push the real history and retain the original instructor correspondence.
-- Open all three canonical diagram files in the final viewing environment.
-- Read the model, rationale and explanation notes and identify anything unclear.
-- Record actual student changes or verified understanding honestly in AI_USAGE.md.
-- Generate and inspect a new take-home bundle after the final commit.
-- Resolve the official form's missing attachment field with the instructor.
-  The published form was checked on October 22 and had identity fields plus
-  a checklist, but no file-upload question. Do not treat a form response as
-  evidence that the bundle was received. Retain confirmation and correspondence.
-- Prepare for Part A and the undisclosed Part B extension with AI off in class.
+1. Install this final update, inspect the diff, and commit/push the actual changes.
+2. View all three final diagrams and read the rationale against the domain notes.
+3. Record any genuine student review or revisions in AI_USAGE.md.
+4. Run the unchanged bundler after the final commit and inspect its output.
+5. Confirm an accepted delivery route for the text bundle. The published form
+   checked on October 22 lacked a file-upload question; a checklist response
+   alone does not establish that the bundle was received.
+6. Prepare to explain and extend this model in class with AI assistants off.
 
-## Boundaries
-
-Only Mermaid and Markdown are added. munger.py is unchanged; bundles are ignored
-by Git. The repository is public at the student's request; the handout prohibits
-sharing models or rationale with other students, so private visibility is
-recommended. This file does not claim a particular grade, completed student
-review, independent authorship, or completed delivery to the instructor.
+The source files are AI-assisted. This record does not assert independent student
+authorship, completed understanding, a particular grade, or confirmed submission.
