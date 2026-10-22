@@ -35,6 +35,20 @@ can be patched with a conditional and still run. In a diagram, it is visible.
 
 ## 0. How to read this
 
+<!-- AI-ANNOTATION START -->
+> **Annotation key and provenance.** The added blockquotes are AI-assisted notes
+> prepared on October 22, 2026. Original source paragraphs remain unchanged.
+> Student review is required; these notes do not claim an unaided reading pass.
+>
+> - **[VARIES]** identifies alternatives or changing data.
+> - **[FIXED]** identifies a rule stated by the source.
+> - **[IMPOSSIBLE]** identifies a forbidden situation.
+> - **[DESIGN]** proposes a modelling consequence; it is not additional source text.
+> - **[GAP]** identifies an ambiguity that needs a recorded decision.
+> - **[CHECK]** identifies a worked example or consistency check to explain.
+> - **[SCOPE]** distinguishes required take-home coverage from other material.
+<!-- AI-ANNOTATION END -->
+
 This document describes a **domain**. It is not a specification of a program: it has no class
 names, no diagrams, and no advice about structure. Turning it into an object model is your job.
 
@@ -52,6 +66,17 @@ background is needed. Where a formula matters, it is given.
 
 ## 1. What this market is
 
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** A share and an agreement about that share are distinct assets.
+> The agreement has its own price, parties, and end date.
+>
+> **[VARIES]** What is owned, how its value changes, and whether it has an expiry.
+>
+> **[SCOPE]** The take-home model covers the assets and contract behaviour in
+> sections 2-6. Section 7 describes trading mechanisms that are not required
+> as a complete take-home order-book model.
+<!-- AI-ANNOTATION END -->
+
 Most markets trade *things*. This market also trades **agreements about things**.
 
 You can buy a share of a company. You can also buy an agreement that gives you the right to buy a
@@ -68,6 +93,21 @@ Three different things happen in this market:
 
 ## 2. Assets: things you can own
 
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** An asset can be owned and has a value. A position identifies an
+> asset and a quantity held by an owner.
+>
+> **[VARIES]** Spot changes over time. Different positions can hold different
+> assets and quantities.
+>
+> **[DESIGN]** Keep the shared asset separate from an owner's position. Quantity
+> belongs to the holding, not to the stock description shared by many owners.
+> Give positions a common way to request value without inspecting asset kinds.
+>
+> **[GAP]** State the unit of every valuation operation. A stock's spot is per
+> share; a position's value covers its entire quantity.
+<!-- AI-ANNOTATION END -->
+
 An **asset** is anything that can be owned and has a value.
 
 The basic asset in this market is a **share** of a company, also called a **stock**. Owning one
@@ -81,6 +121,24 @@ hold a position of 300 shares of XYZ.
 ---
 
 ## 3. Contracts are assets too
+
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** A contract is an asset. A position can hold a contract through
+> the same ownership abstraction used for shares.
+>
+> **[VARIES]** Contract lifecycle state: Open, Exercised, or Expired.
+>
+> **[FIXED]** Exactly one lifecycle state applies at a time.
+>
+> **[IMPOSSIBLE]** An expired contract cannot be traded or exercised. A share
+> cannot be expired. An ended contract cannot simultaneously remain Open.
+>
+> **[DESIGN]** Put lifecycle behaviour on the contract abstraction rather than
+> on every asset. Stock should not inherit meaningless exercise operations.
+>
+> **[CROSS-REFERENCE]** Open is necessary for exercise; section 5 also restricts
+> exercise to the expiry date. This table alone does not authorize early exercise.
+<!-- AI-ANNOTATION END -->
 
 A **contract** is an agreement between two parties, with written terms, that obliges at least one
 of them to do something.
@@ -107,6 +165,21 @@ traded. A share is never "expired".
 
 ## 4. Options: calls and puts
 
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** The underlying is stock. Strike and expiry are contractual terms;
+> the multiplier is always 100 shares per contract in this domain.
+>
+> **[VARIES]** The right is to buy or sell. Underlying stock, strike, and expiry
+> can differ across listed options; premium changes with the market.
+>
+> **[DESIGN]** Store the call/put distinction in one behaviour-bearing place.
+> A separate right tag that valuation or settlement inspects would violate the
+> handout's no-kind-tests rule outside the construction boundary.
+>
+> **[FIXED]** Premium is not a fixed contractual term. Keep the original paid
+> premium distinct from a later current value when discussing profit.
+<!-- AI-ANNOTATION END -->
+
 An **option** is a contract that gives its owner the **right, but not the obligation**, to buy or
 sell a fixed number of shares at a fixed price, on a fixed date.
 
@@ -124,6 +197,21 @@ The **premium** is the price of the option itself. It is not one of the terms: t
 it changes all the time, and the order book of §7 exists to find it.
 
 ### 4.1 Two sides
+
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** Holder and writer are different roles. The holder has the right;
+> the writer has the corresponding obligation. One account may occupy different
+> roles in different contracts, so these roles need not be permanent person types.
+>
+> **[FIXED]** Long and short positions are created together and end together.
+> Premium flows from holder to writer when the option is acquired.
+>
+> **[IMPOSSIBLE]** A writer cannot refuse performance after a valid assignment.
+> An outstanding contract cannot have an unpaired holder or writer.
+>
+> **[DESIGN]** Identify one owner of paired position updates. Independent public
+> updates that can expose only half the pair would fail the section 5 invariant.
+<!-- AI-ANNOTATION END -->
 
 Every option has a buyer and a seller, and their positions are different.
 
@@ -145,6 +233,20 @@ For every option that exists, one party holds it and another party wrote it. The
 created together, and they end together.
 
 ### 4.2 Calls and puts, with numbers
+
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** A call transfers shares from writer to holder and cash in the
+> opposite direction; a put reverses those flows. Common terms should not be
+> duplicated to represent that directional difference.
+>
+> **[CHECK]** Call example: 100 shares, strike 105, spot 120. Exercise cash is
+> 10,500; share-value advantage is 1,500; profit after premium 250 is 1,250.
+> The exercise payment is not merely the 1,500 advantage.
+>
+> **[CHECK]** Put example: strike 95, spot 80. Exercise cash is 9,500 from writer
+> to holder, with 100 shares moving to the writer. The advantage is 1,500;
+> profit after premium 200 is 1,300.
+<!-- AI-ANNOTATION END -->
 
 A **call** is the right to *buy* at the strike. The holder of a call wants the price to go up.
 
@@ -183,6 +285,22 @@ cash move when the right is used.
 
 ### 4.3 Where an option stands
 
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** Moneyness depends on the current spot and strike. It is a derived
+> condition, not an independent permanent kind of option.
+>
+> **[FIXED]** Intrinsic value is nonnegative and the formulas here are per share.
+> Multiply by 100 for one contract, then by the held quantity for a position.
+>
+> **[DESIGN]** Do not treat intrinsic value as the entire pre-expiry value.
+> Do not subtract the historical premium to obtain current intrinsic value;
+> that subtraction belongs to profit/loss reasoning.
+>
+> **[GAP]** The phrase "at, or very near" does not specify a numerical tolerance.
+> Section 5's automatic-exercise threshold is also unspecified. Record any
+> chosen comparison rule rather than silently inventing a source requirement.
+<!-- AI-ANNOTATION END -->
+
 Comparing the spot price with the strike shows where an option stands:
 
 - **In the money** — exercising now would be profitable: a call when the spot is above the strike,
@@ -204,6 +322,42 @@ usually worth more, because the price still has time to move (§6).
 ---
 
 ## 5. Exercise and expiry
+
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** Exercise is permitted only on the expiry date and while the
+> contract is Open. Every still-open option is resolved at expiry.
+>
+> **[IMPOSSIBLE]** Early exercise, repeat exercise, or exercise/trading after
+> expiry. A share must not be subjected to option-expiry processing.
+>
+> **[FIXED]** Exercise causes physical share delivery and strike-price cash
+> payment. Each exercise has exactly one assignment for the same quantity;
+> the exchange selects the writer, who has no refusal right.
+>
+> **[FIXED]** Across all accounts, signed positions in an option sum to zero
+> at every observable moment, not merely after a batch is repaired.
+>
+> **[DESIGN]** Model settlement as one consistent change of both option sides,
+> shares, cash, and lifecycle. The final sequence diagram must identify the
+> operation responsible for this change and for preventing a repeat settlement.
+> Concurrency and persistence mechanisms are outside the handout's scope.
+>
+> **[VARIES]** Exchange resolution can exercise or expire the contract. The
+> automatic-exercise threshold is an exchange rule rather than a call/put tag.
+>
+> **[GAP]** The document does not give a threshold value, equality convention,
+> writer-selection algorithm, or handling of insufficient shares/cash. Record
+> an assumption or an explicit limitation for each behaviour the model needs.
+> Do not add a margin system, which section 10 excludes.
+>
+> **[GAP]** A listed option description is not necessarily an already issued
+> contract with parties. Section 8 lists six descriptions before anyone holds
+> them. Distinguishing a listed series from issued obligations is one possible
+> resolution; the final model must explain its chosen interpretation.
+>
+> **[DESIGN]** The expiry sequence must delegate directional settlement behaviour
+> without asking whether the option is a call or a put.
+<!-- AI-ANNOTATION END -->
 
 In this market, an option can be exercised **only on its expiry date**.
 
@@ -228,6 +382,30 @@ nothing. After expiry the contract no longer exists: it cannot be traded or exer
 ---
 
 ## 6. What an option is worth before expiry
+
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** Spot and time to expiry change. Volatility and interest rate are
+> inputs, but their estimation is excluded; section 10 permits fixed values.
+>
+> **[FIXED]** Put-call parity applies to a call and put with the same underlying,
+> strike, and expiry. The displayed premiums are per share; contract values
+> require the multiplier. Time T is in years and must use consistent units.
+>
+> **[DESIGN]** Locate the valuation responsibility explicitly in the class model.
+> The put-value sequence must show where inputs come from and how the relevant
+> behaviour is selected polymorphically. Adding a CALL/PUT switch to a pricing
+> service would not satisfy the handout rule.
+>
+> **[GAP]** This copy names Black-Scholes-Merton and says the formula is supplied,
+> but prints only put-call parity. Parity alone does not determine both premiums
+> without one additional value. Treat the named formula as a valuation dependency
+> and record the missing explicit expression; do not claim that parity by itself
+> is a complete independent pricing formula.
+>
+> **[DESIGN]** Explain how valuation handles the expiry boundary and terminal
+> contracts rather than applying a pre-expiry calculation indiscriminately.
+> A market quote and a model-calculated value should have clearly stated roles.
+<!-- AI-ANNOTATION END -->
 
 The premium of an option depends on:
 
@@ -254,10 +432,26 @@ parity**. Because it is exactly true, it is a useful way to check a calculation.
 
 ## 7. How trading happens
 
+<!-- AI-ANNOTATION START -->
+> **[SCOPE]** This section is retained and marked for domain understanding.
+> A full matching/order-book subsystem is outside the seven required take-home
+> coverage items. Do not claim to know the undisclosed in-class extension.
+>
+> **[FIXED]** There is one book per traded thing; stock and option books must
+> not require different ownership representations.
+<!-- AI-ANNOTATION END -->
+
 Options and shares are traded on an **order book**: one book for each thing that is traded. The
 book holds everyone's open offers to buy and to sell.
 
 ### 7.1 Orders
+
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** Buy/sell, quantity, and market/limit instructions.
+>
+> **[FIXED]** A limit order supplies a price bound; a market order supplies no
+> limit price. Do not invent a numeric sentinel as a source-specified market price.
+<!-- AI-ANNOTATION END -->
 
 An **order** says: buy or sell, which contract, how many, and on what terms.
 
@@ -271,6 +465,16 @@ lowest ask are the **best bid** and the **best ask**, and the difference between
 **spread**.
 
 ### 7.2 Matching
+
+<!-- AI-ANNOTATION START -->
+> **[FIXED]** Matching follows price first, then arrival time. Execution uses
+> the resting order's price. A crossed book must not persist after resolution.
+>
+> **[VARIES]** An order can fill fully, partly, or not at all.
+>
+> **[DESIGN]** If trading is later modelled, separate matching responsibilities
+> from asset valuation, contract lifecycle, and physical settlement.
+<!-- AI-ANNOTATION END -->
 
 When an arriving order can trade with a resting order, the exchange **matches** them, and a
 **trade** happens. The rule is **price-time priority**:
@@ -292,6 +496,14 @@ already have traded.
 
 ### 7.3 Time in force
 
+<!-- AI-ANNOTATION START -->
+> **[VARIES]** Day, good till cancelled, immediate or cancel, and fill or kill.
+>
+> **[FIXED]** Fill-or-kill needs a whole-quantity availability check before any
+> execution. A policy applied only after a partial fill cannot express that rule.
+> This is an extension consideration, not an extra take-home diagram requirement.
+<!-- AI-ANNOTATION END -->
+
 Each order says what happens to any part of it that does not fill:
 
 - **Day** — rest until the end of the day, then cancel.
@@ -305,6 +517,13 @@ cannot. Whether the order may trade at all depends on the whole quantity being a
 any of it trades.
 
 ### 7.4 A worked example
+
+<!-- AI-ANNOTATION START -->
+> **[CHECK]** The fill order is A, then B, then part of C. Quantities are
+> 20 + 5 + 5 = 30; the remaining ask at 2.55 is 20. The premium-per-share
+> weighted average is approximately 2.5083; with multiplier 100, the total
+> premium is 7,525. Keep the share/contract units explicit.
+<!-- AI-ANNOTATION END -->
 
 The asks resting in the book for one contract, in the order they arrived:
 
@@ -340,6 +559,11 @@ A fills 20 at 2.50, then B fills 5 at 2.50, then C fills 5 at 2.55. 30 bought fo
 
 ### 7.5 Other order types
 
+<!-- AI-ANNOTATION START -->
+> **[SCOPE]** These descriptions are explicitly WIP awareness material.
+> Do not silently treat their missing details as complete required behaviour.
+<!-- AI-ANNOTATION END -->
+
 ⚠ **WIP.** Listed here for awareness only:
 
 - **Stop order** — waits until the price reaches a trigger, then becomes a market order.
@@ -349,6 +573,19 @@ A fills 20 at 2.50, then B fills 5 at 2.50, then C fills 5 at 2.55. 30 bought fo
 ---
 
 ## 8. One example, from listing to expiry
+
+<!-- AI-ANNOTATION START -->
+> **[CHECK]** Ten contracts cover 1,000 shares. Initial premium is 2,500.
+> At expiry, delivery is 1,000 shares and cash is 105,000. At spot 112 the
+> exercise advantage is 7,000, and profit after premium is 4,500.
+>
+> **[FIXED]** Both option positions disappear together after resolution.
+> The acquired stock position remains distinct from the ended option holding.
+>
+> **[GAP]** "Six contracts" at listing means six listed term/right combinations
+> before issuance in this example. Explain how the model reconciles this with
+> the exactly-one-holder-and-writer rule for existing issued contracts.
+<!-- AI-ANNOTATION END -->
 
 **Listing.** The exchange lists options on XYZ, which trades at 100: calls and puts at strikes of
 95, 100, and 105, all expiring in 30 days, each covering 100 shares. That is six contracts. Nobody
@@ -374,6 +611,13 @@ exercised, and the rest expire, worth nothing.
 
 ## 9. Questions worth answering on purpose
 
+<!-- AI-ANNOTATION START -->
+> **[DESIGN]** Use these questions as a reading checklist. The deliverable
+> rationale must answer all eight questions in handout section 7, not merely
+> these five domain questions. Explain rejected alternatives and actual misfits
+> of the chosen diagrams rather than repeating generic design-pattern claims.
+<!-- AI-ANNOTATION END -->
+
 None of these has a single right answer, and this document does not give one. Each is a decision
 you will be asked to explain.
 
@@ -389,6 +633,17 @@ you will be asked to explain.
 ---
 
 ## 10. What this document leaves out
+
+<!-- AI-ANNOTATION START -->
+> **[SCOPE]** Keep the take-home limited to stock options with expiry-date
+> exercise and physical delivery. Margin, fees, volatility estimation, other
+> underlyings, and alternative settlement rules are not required subsystems.
+>
+> **[DESIGN]** Distinguish omitted features from genuine gaps in required
+> behaviour. Record assumptions about threshold, units, lifecycle, construction,
+> and paired ownership wherever the model depends on them. An extension hook
+> can be explained without pretending the extension is already implemented.
+<!-- AI-ANNOTATION END -->
 
 **Left out on purpose**, because you do not need it:
 

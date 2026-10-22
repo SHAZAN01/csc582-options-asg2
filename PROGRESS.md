@@ -7,7 +7,9 @@ Due: Friday, October 23, 2026, at 5:30 PM
 
 - Work in ~/csc582-options.
 - Preserve the original download in ~/csc582-asg2-distribution.
-- Keep this GitHub repository private.
+- The repository is currently public at the student's request.
+- The handout says not to share the model or rationale with other students;
+  private visibility is recommended.
 - Submit Mermaid source and Markdown prose.
 - Keep munger.py unchanged.
 - Record significant AI assistance in AI_USAGE.md.
@@ -26,14 +28,19 @@ Due: Friday, October 23, 2026, at 5:30 PM
 - [x] Renamed the AI disclosure template to AI_USAGE.md.
 - [x] Practice sequence diagram rendered successfully.
 - [x] Committed practice work: 9f0d1a8.
+- [x] Added progress tracking and bundle exclusion: fa741a9.
+- [x] Verified the first GitHub push and all three commits.
+- [x] Prepared a complete AI-assisted annotated document for local installation.
 
 ## Remaining work, in order
 
-- [ ] Verify the first push to the private GitHub repository.
 - [ ] Complete class-diagram rendering verification.
-- [ ] Review and insert the proposed annotations for sections 2 and 3.
-- [ ] Annotate the remaining domain requirements while reading.
-- [ ] Identify assumptions, ambiguities, and limitations.
+- [ ] Install and inspect the downloaded three-file update.
+- [ ] Read and review the AI-assisted annotations, especially sections 2-6.
+- [ ] Revise any annotation that does not reflect the student's understanding.
+- [ ] Commit and push the reviewed annotated document and companion files.
+- [x] Flag source gaps and ambiguities as annotation candidates.
+- [ ] Resolve and justify modelling assumptions in the final rationale.
 - [ ] Choose the ownership and position abstractions.
 - [ ] Choose how call/put variation is represented in one place.
 - [ ] Model holder/writer consistency and balanced positions.
@@ -63,9 +70,21 @@ Due: Friday, October 23, 2026, at 5:30 PM
 The class importer omitted operations and relationship details.
 The original class Mermaid source is retained; full verification is pending.
 
-The latest confirmed history contains two commits dated October 21.
+The last confirmed remote checkpoint is fa741a9: three commits on
+October 21 in Pacific time. This downloadable update has not yet been
+committed or pushed. Recount actual commits and distinct days before submission.
 The requirement for 20 commits across seven days is not yet satisfied.
 Preserve genuine history and report the actual count.
 
-The sections 2 and 3 annotations were proposed in chat.
-Their insertion into the local document has not yet been confirmed.
+The complete annotated document was prepared by ChatGPT on October 22.
+Its original prose is preserved, and added notes are visibly delimited.
+Student review and local installation are pending. No unaided reading pass,
+completed final model, or in-class performance is claimed.
+
+## Next action after installing this update
+
+Read the annotations and the original paragraphs together. The final model
+still needs to express the seven coverage items in handout section 4.
+Replace the temporary sketches with one complete class diagram and the two
+required sequence diagrams, then write and cross-check the eight-part rationale.
+
