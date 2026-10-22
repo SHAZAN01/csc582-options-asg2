@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title>Profit or loss of a long put, strike 95, premium 2.00</title>
+<rect x="0.5" y="0.5" width="639" height="359" rx="8" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="74" y="26" font-size="13" fill="#52514e" text-anchor="start">profit or loss per contract</text>
+<text x="66" y="233.6" font-size="12" fill="#898781" text-anchor="end">0</text>
+<line x1="74" y1="170" x2="614" y2="170" stroke="#e1e0d9" stroke-width="1"/>
+<text x="66" y="174" font-size="12" fill="#898781" text-anchor="end">+500</text>
+<line x1="74" y1="110.4" x2="614" y2="110.4" stroke="#e1e0d9" stroke-width="1"/>
+<text x="66" y="114.4" font-size="12" fill="#898781" text-anchor="end">+1,000</text>
+<line x1="74" y1="50.8" x2="614" y2="50.8" stroke="#e1e0d9" stroke-width="1"/>
+<text x="66" y="54.8" font-size="12" fill="#898781" text-anchor="end">+1,500</text>
+<clipPath id="long-put-above"><rect x="74" y="46" width="540" height="183.6"/></clipPath>
+<clipPath id="long-put-below"><rect x="74" y="229.6" width="540" height="52.4"/></clipPath>
+<polygon points="74,229.6 74,74.6 442.2,253.4 614,253.4 614,229.6" fill="#2a78d6" fill-opacity="0.10" clip-path="url(#long-put-above)"/>
+<polygon points="74,229.6 74,74.6 442.2,253.4 614,253.4 614,229.6" fill="#e34948" fill-opacity="0.10" clip-path="url(#long-put-below)"/>
+<line x1="74" y1="229.6" x2="614" y2="229.6" stroke="#c3c2b7" stroke-width="1.25"/>
+<text x="608" y="222.6" font-size="12" fill="#52514e" text-anchor="end" font-style="italic">profit ↑</text>
+<text x="608" y="246.6" font-size="12" fill="#52514e" text-anchor="end" font-style="italic">loss ↓</text>
+<line x1="393.1" y1="282" x2="393.1" y2="229.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="442.2" y1="282" x2="442.2" y2="253.4" stroke="#e1e0d9" stroke-width="1"/>
+<polyline points="74,74.6 442.2,253.4 614,253.4" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="393.1" cy="229.6" r="4.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="442.2" cy="253.4" r="4.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="74" y1="282" x2="614" y2="282" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="74" y1="282" x2="74" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="74" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">80</text>
+<line x1="393.1" y1="282" x2="393.1" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="393.1" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">93</text>
+<text x="389.4" y="318" font-size="12" fill="#52514e" text-anchor="middle">breakeven</text>
+<line x1="442.2" y1="282" x2="442.2" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="442.2" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">95</text>
+<text x="445.8" y="318" font-size="12" fill="#52514e" text-anchor="middle">strike</text>
+<line x1="614" y1="282" x2="614" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="614" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">102</text>
+<text x="344" y="346" font-size="13" fill="#52514e" text-anchor="middle">price of the underlying at expiry</text>
+<text x="82" y="62.6" font-size="13" fill="#0b0b0b" text-anchor="start">+1,300 at 80</text>
+<text x="528.1" y="275.4" font-size="13" fill="#0b0b0b" text-anchor="middle">−200: the premium paid</text>
+</svg>

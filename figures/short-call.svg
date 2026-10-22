@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+<title>Profit or loss of the writer of a call, strike 105, premium 2.50</title>
+<rect x="0.5" y="0.5" width="639" height="359" rx="8" fill="#fcfcfb" stroke="#e1e0d9"/>
+<text x="74" y="26" font-size="13" fill="#52514e" text-anchor="start">profit or loss per contract</text>
+<line x1="74" y1="223.6" x2="614" y2="223.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="66" y="227.6" font-size="12" fill="#898781" text-anchor="end">−1,000</text>
+<line x1="74" y1="164" x2="614" y2="164" stroke="#e1e0d9" stroke-width="1"/>
+<text x="66" y="168" font-size="12" fill="#898781" text-anchor="end">−500</text>
+<text x="66" y="108.4" font-size="12" fill="#898781" text-anchor="end">0</text>
+<clipPath id="short-call-above"><rect x="74" y="46" width="540" height="58.4"/></clipPath>
+<clipPath id="short-call-below"><rect x="74" y="104.4" width="540" height="177.6"/></clipPath>
+<polygon points="74,104.4 74,74.6 290,74.6 614,253.4 614,104.4" fill="#2a78d6" fill-opacity="0.10" clip-path="url(#short-call-above)"/>
+<polygon points="74,104.4 74,74.6 290,74.6 614,253.4 614,104.4" fill="#e34948" fill-opacity="0.10" clip-path="url(#short-call-below)"/>
+<line x1="74" y1="104.4" x2="614" y2="104.4" stroke="#c3c2b7" stroke-width="1.25"/>
+<text x="608" y="97.4" font-size="12" fill="#52514e" text-anchor="end" font-style="italic">profit ↑</text>
+<text x="608" y="121.4" font-size="12" fill="#52514e" text-anchor="end" font-style="italic">loss ↓</text>
+<line x1="290" y1="282" x2="290" y2="74.6" stroke="#e1e0d9" stroke-width="1"/>
+<line x1="344" y1="282" x2="344" y2="104.4" stroke="#e1e0d9" stroke-width="1"/>
+<polyline points="74,74.6 290,74.6 614,253.4" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="290" cy="74.6" r="4.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="344" cy="104.4" r="4.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<line x1="74" y1="282" x2="614" y2="282" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="74" y1="282" x2="74" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="74" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">95</text>
+<line x1="290" y1="282" x2="290" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="290" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">105</text>
+<text x="288.8" y="318" font-size="12" fill="#52514e" text-anchor="middle">strike</text>
+<line x1="344" y1="282" x2="344" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="344" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">107.50</text>
+<text x="345.2" y="318" font-size="12" fill="#52514e" text-anchor="middle">breakeven</text>
+<line x1="614" y1="282" x2="614" y2="287" stroke="#c3c2b7" stroke-width="1"/>
+<text x="614" y="302" font-size="12.5" fill="#0b0b0b" text-anchor="middle">120</text>
+<text x="344" y="346" font-size="13" fill="#52514e" text-anchor="middle">price of the underlying at expiry</text>
+<text x="171.2" y="62.6" font-size="13" fill="#0b0b0b" text-anchor="middle">+250: the premium received</text>
+<text x="612" y="275.4" font-size="13" fill="#0b0b0b" text-anchor="end">−1,250 at 120</text>
+</svg>
