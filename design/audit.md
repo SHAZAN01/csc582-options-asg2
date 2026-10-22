@@ -10,7 +10,7 @@ simulation. It must be rerun after substantive diagram or rationale edits.
 | 1. Owned and valued assets, including contracts | Asset is implemented by Stock and OptionContract; one Position class holds either through that interface. |
 | 2. Calls, puts, and complete terms | OptionDefinition has underlying Stock, strike, expiry and multiplier; Payoff supplies one shared signed-vanilla behaviour with call/put constructor coefficients. |
 | 3. Holder and writer | Each issued OptionContract has exactly one of each; the ledger publishes their paired positions and acquisition premium together. |
-| 4. Lifecycle and permissions | ContractState defaults reject mutation; OpenState permits appropriate date-checked operations; ExercisedState and ExpiredState are terminal. |
+| 4. Lifecycle and permissions | ContractState defaults reject authorization; OpenState permits appropriate date-checked operations; ExercisedState and ExpiredState are terminal. |
 | 5. Exercise, assignment, automatic expiry | Exchange chooses threshold policy; AssignmentPolicy chooses an eligible writer; ClearingLedger commits assignment, paired closure, physical delivery and lifecycle together. |
 | 6. Intrinsic and pre-expiry value | Payoff.intrinsicValue and modelValue return per-contract money; the put sequence reaches the latter through current-state delegation. |
 | 7. External construction boundary | ConstructionBoundary reads ListingDescription and its external right label, resolves Stock, selects one Payoff prototype, builds terms and issues paired units. |
@@ -28,10 +28,10 @@ simulation. It must be rerun after substantive diagram or rationale edits.
 | OptionContract.unitValue / assertTradable / assertOpenAtExpiry | Current private ContractState | Polymorphic delegation; no state-label or asset-kind comparison. |
 | OptionContract.openValue | Immutable terms and Payoff | Delegate per-contract valuation. |
 | OptionContract.intrinsicValue / settlementPlan | Immutable terms and Payoff | Delegate economic behaviour without reading a right tag. |
-| OptionContract.exerciseAtExpiry / expireAtExpiry | Current state, ledger and context | Dispatch through current state; terminal states reject. |
+| OptionContract.exerciseAtExpiry / expireAtExpiry | Current state, ledger and context | Authorize through current state, then coordinate clearing; terminal states reject. |
 | replaceWriter / finishExercise / finishExpiry | Owning ledger authority and validated commit | Apply an already-authorized invariant-preserving change; never classify a right. |
 | ContractState default operations | Contract and context | Return zero or reject. No classification is required. |
-| OpenState permissions / exercise / expire | Dates, delegated plan and ledger | Compare dates, then delegate the permitted effect. |
+| OpenState valuation and permissions | Dates, contract and market | Date checks authorize resolution, or delegate open valuation. The contract coordinates the authorized workflow. |
 | CallPayoff / PutPayoff constructors | One fixed coefficient | Establish the mathematical right once, during construction. |
 | SignedVanillaPayoff.intrinsicValue | Private coefficient and numeric terms | Shared signed arithmetic and max; no comparison against a kind value. |
 | SignedVanillaPayoff.modelValue | Private coefficient, numeric market inputs | One signed BSM expression with numeric boundary cases. |
@@ -39,7 +39,7 @@ simulation. It must be rerun after substantive diagram or rationale edits.
 | ClearingLedger.registerPair | Known issued unit, parties, acquisition price | Publish equal and opposite holdings and premium cash movement together. |
 | ClearingLedger.selectWriter / eligibleWriters | Active-unit index and definition identity | Delegate selection among open matching obligations; no CALL/PUT test. |
 | AssignmentPolicy.selectWriter | Eligible accounts and account IDs | Deterministic ordering over domain data. |
-| ClearingLedger.exerciseAtomically / expireAtomically | Current-state authorization, balances and plan | Validate and commit the complete effect, including terminal state. |
+| ClearingLedger.exerciseAtomically / expireAtomically / recordAssignment | Current-state authorization, balances and plan | Validate and commit the complete effect, including terminal state. |
 | SettlementPlan.validateBalance | Typed asset/cash delta maps | Sum cash and sum units separately for each Asset identity. |
 | Exchange.resolveAtExpiry / exercise | Dates, holder identity, intrinsic and threshold | Policy compares dates, identities and money; never option kinds. |
 | Exchange.shouldExercise | Intrinsic money and positive configured threshold | One numeric comparison. |
@@ -70,8 +70,11 @@ cannot prove a future implementation will obey them.
 The sequence files contain exactly one Mermaid sequenceDiagram each and no
 more than five participants. Calls must resolve to operations declared in
 model.md (including inherited operations). Dashed return arrows carry values,
-not additional method calls. Notes summarize effects inside the named atomic
-operation; they do not introduce an unmodelled external participant.
+not additional method calls. Holder and Writer are two Account instances, so their messages resolve to the
+Account class. The expiry sequence explicitly closes both option holdings,
+delivers shares, transfers strike cash, records an assignment and ends the
+contract. Internal state/payoff delegation is summarized in notes; the put
+sequence expands the valuation delegation.
 
 The supplied validation checks parse the three diagram sources and resolve
 each sequence call to a model operation. No executable market code or market

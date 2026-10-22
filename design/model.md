@@ -1,6 +1,6 @@
 # Options market class model
 
-This is an AI-assisted design draft for student review. Requirements come from
+This is an AI-assisted model for student review. Requirements come from
 `OPTIONS-MARKETS.md` sections 2-6. The rationale defines the operation contracts,
 units, invariants, and deliberate simplifications behind this diagram.
 
@@ -91,15 +91,11 @@ classDiagram
             +unitValue(contract, market) Money
             +assertTradable(contract, market)
             +assertOpenAtExpiry(contract, market)
-            +exercise(contract, writer, ledger, market) Assignment
-            +expire(contract, ledger, market)
         }
         class OpenState {
             +unitValue(contract, market) Money
             +assertTradable(contract, market)
             +assertOpenAtExpiry(contract, market)
-            +exercise(contract, writer, ledger, market) Assignment
-            +expire(contract, ledger, market)
         }
         class ExercisedState {
             +ExercisedState()
@@ -116,6 +112,7 @@ classDiagram
             +eligibleWriters(contract) Collection
             ~exerciseAtomically(contract, writer, plan, market) Assignment
             ~expireAtomically(contract, market)
+            ~recordAssignment(contract, writer, market) Assignment
         }
         class AssignmentPolicy {
             +selectWriter(contract, ledger) Account
@@ -191,7 +188,7 @@ classDiagram
     ConstructionBoundary ..> ClearingLedger : issues paired positions
 
     note for SignedVanillaPayoff "Private immutable coefficient. Call +1. Put -1."
-    note for ContractState "Defaults reject mutation and return zero."
+    note for ContractState "Defaults reject authorization and return zero."
     note for OptionContract "One issued unit. Private state. Ledger-authorized transitions."
     note for ClearingLedger "Both sides, delivery, assignment and state change together."
 ```
@@ -209,6 +206,17 @@ MarketContext and plans are immutable while an operation is in progress.
 
 The terminal states inherit rejection and zero valuation from ContractState.
 The labels are for display only; operations never compare their labels.
+
+OptionContract owns the exercise/expiry workflow. Its current state authorizes
+the request through assertOpenAtExpiry; the contract then obtains the payoff's
+settlement plan and asks its owning ledger to commit. State objects supply
+permissions and valuation, rather than duplicating the settlement workflow.
+The ledger rechecks the current state immediately before any effect.
+
+recordAssignment is internal to exerciseAtomically. It records exactly one
+assignment for that unit within the same commit as paired closure and delivery.
+Account mutation messages in the expiry sequence are internal steps of that
+indivisible operation, not separately observable public transactions.
 
 Parameter names are used to keep the boxes readable: `market` is MarketContext;
 `terms` is OptionDefinition; `contract` is OptionContract; `holder` and `writer`

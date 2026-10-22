@@ -83,7 +83,11 @@ always a valid fallback. This keeps every issued unit paired even before it ends
 Writer re-pairing, removal of the exercised long and short, stock/cash changes,
 one completed Assignment, and the terminal state are one logical atomic commit.
 Both the option position sum and each transfer's balance remain zero at every
-observable model boundary. No concurrency or database implementation is claimed.
+observable model boundary. The explicit Account calls in expiry.md are internal
+steps of this indivisible domain operation, never separate public commits.
+The ledger validates the complete plan with SettlementPlan.validateBalance
+before any effects. recordAssignment runs once inside the successful commit;
+failed authorization or validation produces no assignment and no delivery. No concurrency or database implementation is claimed.
 
 Each exercise here is exactly one issued unit and creates exactly one Assignment
 whose contractCount is 1. Ten units are ten exercises and ten assignments. This
@@ -94,9 +98,9 @@ quantity of the exercise represented by that event.
 ## 4. Contract life and prevention of invalid exercise
 
 Only OptionContract composes ContractState. The abstract state supplies safe
-defaults: value zero and rejection of trading, exercise authorization, exercise,
-and expiry mutation. ExercisedState and ExpiredState inherit those terminal
-defaults. OpenState alone supplies the permitted operations. No caller compares
+defaults: value zero and rejection of trading and expiry-date authorization.
+ExercisedState and ExpiredState inherit those terminal defaults. OpenState
+alone supplies the permitted valuation and authorization operations. No caller compares
 displayLabel or asks which state class it has.
 
 | Current state | Current value | Trading | Exercise |
@@ -106,7 +110,14 @@ displayLabel or asks which state class it has.
 | Exercised | Zero | Rejected | Rejected |
 | Expired | Zero | Rejected | Rejected |
 
-OpenState authorizes exercise only when market.asOf equals the definition's
+OptionContract owns the exercise and expiry workflows. Each first delegates
+authorization to its current state. For exercise it then obtains the Payoff
+settlement plan and calls ClearingLedger.exerciseAtomically; for expiry it calls
+expireAtomically. States decide permission, while the contract coordinates the
+workflow and the ledger owns financial effects. This avoids duplicating
+settlement orchestration in the state classes.
+
+OpenState authorizes resolution only when market.asOf equals the definition's
 expiry. The ledger repeats authorization against the contract's *current*
 private state immediately before committing. Terminal state rejection therefore
 prevents the settlement effect, rather than merely displaying a warning.

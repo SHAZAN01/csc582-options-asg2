@@ -10,8 +10,10 @@ I used ChatGPT to review the assignment requirements, guide repository setup,
 inspect my rehearsal bundle, draft temporary Mermaid sketches, and prepare
 AI-assisted annotations of the domain document. ChatGPT also drafted this
 disclosure and the progress checklist. A complete candidate class diagram,
-two sequence diagrams and rationale are now drafted, with student review
-and final submission checks still pending.
+two sequence diagrams and rationale were installed and pushed as d237bcc.
+The generated bundle was inspected. A later review strengthens the settlement
+trace and simplifies state responsibilities. Student understanding and final
+delivery confirmation remain unverified.
 
 ## Log
 
@@ -45,7 +47,9 @@ and final submission checks still pending.
   without a rendering error.
 - **Remaining issue:** The class diagram's visual import omitted operations
   and relationship details. Full class-diagram verification is still pending.
-  The original class Mermaid source is retained.
+  At that checkpoint the original class Mermaid source was retained.
+  **Later status:** the final diagrams were rendered directly and the
+  temporary practice sources were removed in d237bcc.
 
 ### Entry 3 — Complete annotated document and installation package
 
@@ -69,16 +73,16 @@ and final submission checks still pending.
   Their creation does not establish that I independently read or understood
   every section. I need to read the notes against the original text and
   explain the resulting model myself in class.
-- **Rejected or unresolved:** The notes do not choose the final class
-  hierarchy. The lifecycle design, single construction boundary, valuation
-  design, and settlement protocol remain to be decided and diagrammed.
+- **At that checkpoint:** The notes did not choose the final hierarchy.
+  Lifecycle, construction, valuation and settlement were subsequently
+  diagrammed in d237bcc and revised in Entry 5.
 
 ### Entry 4 — Candidate model, rationale and review package
 
 - **Date:** 2026-10-22
 - **Tool:** ChatGPT, read-only GitHub checks, and local Mermaid validation
-- **Related commits:** 2004e79 is the last verified remote checkpoint.
-  This candidate package has not yet been committed by the student.
+- **Related commits:** Installed and pushed as d237bcc, verified on GitHub.
+  The first generated bundle containing this model was also inspected.
 - **What I asked for:** Check the installed annotations and guide the next
   assignment stage with complete, usable files.
 - **What it produced:** One Mermaid class diagram in Markdown, the two
@@ -115,6 +119,31 @@ and final submission checks still pending.
   restricted feasible re-pairing policy; no netting or failed delivery;
   on-time expiry assumed; chosen threshold and day count. These are
   explained in rationale.md rather than hidden.
+
+### Entry 5 — Rubric review and explicit settlement revision
+
+- **Date:** 2026-10-22
+- **Tool:** ChatGPT with source review and local Mermaid validation
+- **Related commits:** d237bcc is the verified installed checkpoint. The
+  commit containing this entry records the revised package after installation.
+- **Request:** Assess the actual bundle against the rubric and strengthen
+  weak areas. The student asked for a higher mark.
+- **Produced:** Revised class model and expiry sequence, consistent rationale
+  and audit, current progress/disclosure, and expanded explanation practice.
+- **Changes:** Account position/cash changes and assignment recording are
+  explicit sequence messages. OptionContract coordinates resolution; state
+  objects supply authorization and valuation. All financial effects remain
+  one indivisible ledger operation. No market simulation is supplied.
+- **Rejected:** Fabricating reading history, backdating commits, claiming
+  student understanding without evidence, or guaranteeing a grade.
+- **Verification:** The validation record reports parsing, rendering and
+  sequence-to-class operation checks for this revision.
+- **Student review:** Still required. These are assistant-authored changes
+  and preparation explanations, not evidence of an unaided design or defense.
+- **Submission issue:** The assistant checked the published take-home form
+  and found identity fields and a checklist but no file-upload question.
+  A checklist response alone does not establish delivery of the bundle.
+  Instructor confirmation of the delivery route remains necessary.
 
 ## Where the agent or tool workflow needed correction
 

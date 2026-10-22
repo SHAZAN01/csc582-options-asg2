@@ -19,13 +19,17 @@ ambiguities. Significant assistance is disclosed in `AI_USAGE.md`.
 | `PROGRESS.md` | Verified checkpoints and remaining work. |
 
 Each diagram file contains one Mermaid code block and renders in GitHub's
-Markdown view. The Markdown source is the graded artifact. Temporary
-`toolchain-*.mmd` sketches should be removed once these replacements are installed.
+Markdown view. The Markdown source is the graded artifact. The temporary
+`toolchain-*.mmd` practice files were removed in commit d237bcc.
+
+The expiry sequence traces both accounts explicitly. State objects authorize
+resolution; OptionContract coordinates it; ClearingLedger applies all effects
+as one indivisible operation.
 
 The model distinguishes listed definitions from individually issued contracts.
 Each issued unit has paired ownership and its own state. The rationale explains
-the costs of that choice. This is an AI-assisted design draft requiring student
-review, not a claim that every course/process requirement is complete.
+the costs of that choice. The model is AI-assisted and requires student
+review. PROGRESS.md distinguishes verified work from remaining requirements.
 
 Run the unchanged `python3 munger.py` from this repository root to generate the
 take-home bundle, answering `1`. Inspect its metadata, history and source files
