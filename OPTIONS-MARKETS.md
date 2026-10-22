@@ -357,6 +357,21 @@ usually worth more, because the price still has time to move (§6).
 >
 > **[DESIGN]** The expiry sequence must delegate directional settlement behaviour
 > without asking whether the option is a call or a put.
+>
+> **[MODEL REVIEW, October 22 — AI-assisted]** The chosen model represents
+> each issued unit separately. For an open unit c, the holder position is +1,
+> the current writer position is -1, and other accounts hold zero units of c.
+> After resolution all positions in c are zero. This is a design refinement
+> of the source's paired-ownership invariant, not a new market rule.
+>
+> **[CHECK]** Share and cash *transfer deltas* sum to zero in settlement.
+> This does not mean all outstanding stock holdings must sum to zero. The
+> source's signed-position invariant concerns option obligations.
+>
+> **[MODEL REVIEW]** A rejected or repeated exercise must produce no delivery,
+> no new assignment and no lifecycle change. The ledger checks the current
+> private state before committing, so a cached earlier OpenState permission
+> cannot authorize a later settlement. See rationale question 3 and audit.md.
 <!-- AI-ANNOTATION END -->
 
 In this market, an option can be exercised **only on its expiry date**.

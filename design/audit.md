@@ -80,3 +80,23 @@ The supplied validation checks parse the three diagram sources and resolve
 each sequence call to a model operation. No executable market code or market
 test framework is included. Visual readability and student understanding
 remain separate checks from parsing.
+
+
+## Invariant and failure review
+
+| Situation | Model obligation | Responsible operation |
+|---|---|---|
+| Publishing an issued unit | One holder +1, one writer -1, complete terms and one current state are visible together | ConstructionBoundary.issue and ClearingLedger.registerPair |
+| Constructing a listed definition | No party positions are created merely by listing terms | ConstructionBoundary.buildDefinition |
+| Building a delivery plan | Cash deltas sum to zero and each asset's transfer deltas sum to zero | Payoff.settlementPlan and SettlementPlan.validateBalance |
+| Choosing a different writer | A feasible same-definition swap preserves both paired units | ClearingLedger.eligibleWriters and exerciseAtomically |
+| Completing exercise | Close both option positions, deliver, pay strike, record exactly one assignment and end the unit together | ClearingLedger.exerciseAtomically |
+| Completing expiry | Close both option positions and end the unit, without delivery or assignment | ClearingLedger.expireAtomically |
+| Repeating a request | Current terminal-state authorization rejects before any effect | OptionContract.assertOpenAtExpiry, then the ledger's repeated current-state check |
+| Invalid plan | Publish no subset of the financial or lifecycle effects | ClearingLedger.exerciseAtomically |
+
+The successful exercise transition is Open to Exercised; the nonexercise
+resolution is Open to Expired. A failed request leaves the current state
+unchanged. No path returns a terminal unit to Open. The display label never
+participates in these decisions. These are explicit design obligations, not
+claims that a simulation or implementation test has proved them.

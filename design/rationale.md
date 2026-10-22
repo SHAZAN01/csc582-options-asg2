@@ -95,6 +95,36 @@ is a deliberate granularity choice, not a claim to represent one bulk exercise
 of ten units with one assignment. The assignment quantity always matches the
 quantity of the exercise represented by that event.
 
+### Ownership and settlement invariants
+
+These are design contracts, not executable market code. For each published
+open issued unit c, with distinct holder H and writer W:
+
+- position(H,c) = +1 and position(W,c) = -1;
+- every other account has zero units of c;
+- summing positions in c across accounts therefore gives zero.
+
+For a resolved unit all account positions in c are zero. A listed definition
+has no such positions of its own; it describes the family of issued units.
+The boundary may assemble an unpublished unit, but only registerPair publishes
+it together with both positions and the acquisition premium. No public query
+observes an unpaired issued obligation.
+
+For every settlement plan, cash deltas sum to zero and asset deltas sum to
+zero separately for each delivered asset identity. This conservation is about
+transfers, not a claim that existing stock ownership totals zero. The ledger
+validates both balances before committing any effects. An invalid request,
+invalid plan or repeated exercise leaves ownership, cash, assignments and
+lifecycle unchanged. The assignment record is unique for the resolved unit.
+
+To make re-pairing concrete, suppose c1 has H1/W1 and c2 has H2/W2, all four
+accounts distinct and both units sharing one definition. Selecting W2 for c1
+exchanges the two short bindings: c1 becomes H1/W2 and c2 becomes H2/W1.
+The corresponding -1 positions move with those bindings in the same atomic
+operation. Both units stay paired; c1 can then settle against W2. No cash or
+stock changes merely because equivalent short obligations are re-paired.
+Self-matches or infeasible swaps are excluded by the eligibility rule.
+
 ## 4. Contract life and prevention of invalid exercise
 
 Only OptionContract composes ContractState. The abstract state supplies safe

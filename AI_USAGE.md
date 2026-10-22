@@ -145,6 +145,30 @@ delivery confirmation remain unverified.
   A checklist response alone does not establish delivery of the bundle.
   Instructor confirmation of the delivery route remains necessary.
 
+### Entry 6 — Invariant clarification and reported instructor guidance
+
+- **Date:** 2026-10-22
+- **Tool:** ChatGPT with read-only GitHub verification and Markdown preparation
+- **Verified checkpoint:** e9dcb3d, six actual commits across two Pacific dates.
+  The installed reviewed model matches the assistant's checked revision.
+- **Request:** Strengthen remaining weaknesses and document a student-provided
+  instructor message concerning availability and eight commits.
+- **Produced:** Inline domain review notes, precise ownership and transfer
+  invariants, a writer re-pairing example, a failure/transition audit, a
+  submission note transcribing the relevant reported guidance, and updated
+  README/progress records.
+- **Review boundaries:** The original email was not accessed. Its transcript
+  was supplied by the student. The package records the source and the limited
+  interpretation rather than asserting an authenticated blanket grading waiver.
+- **History:** No dates or existing commits were changed. Two separate commits
+  are proposed for substantive invariant clarification and submission records.
+  Eight commits are not claimed until those real commits exist in the history.
+- **Verification:** Removing delimited annotations preserves the original
+  domain prose. The three Mermaid sources are unchanged from the rendered,
+  operation-checked e9dcb3d revision. No executable market code is added.
+- **Student understanding:** Not established by preparing this package.
+  Student review and in-class explanation remain necessary.
+
 ## Where the agent or tool workflow needed correction
 
 The first sequence sketch used valid Mermaid aliases, but the visual
