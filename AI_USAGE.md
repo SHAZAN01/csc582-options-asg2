@@ -9,8 +9,9 @@
 I used ChatGPT to review the assignment requirements, guide repository setup,
 inspect my rehearsal bundle, draft temporary Mermaid sketches, and prepare
 AI-assisted annotations of the domain document. ChatGPT also drafted this
-disclosure and the progress checklist. The final domain model and rationale
-have not yet been developed.
+disclosure and the progress checklist. A complete candidate class diagram,
+two sequence diagrams and rationale are now drafted, with student review
+and final submission checks still pending.
 
 ## Log
 
@@ -50,8 +51,8 @@ have not yet been developed.
 
 - **Date:** 2026-10-22
 - **Tool:** ChatGPT with read-only GitHub access and local file preparation
-- **Related commits:** Repository checkpoint fa741a9 precedes this update.
-  The student will commit the downloaded files locally after review.
+- **Related commits:** Repository checkpoint fa741a9 preceded this update.
+  The installed annotation package was committed and pushed as 2004e79.
 - **What I asked for:** A complete corrected document because manually
   inserting the annotation blocks was confusing.
 - **What it produced:** An annotated OPTIONS-MARKETS.md, an updated
@@ -71,6 +72,49 @@ have not yet been developed.
 - **Rejected or unresolved:** The notes do not choose the final class
   hierarchy. The lifecycle design, single construction boundary, valuation
   design, and settlement protocol remain to be decided and diagrammed.
+
+### Entry 4 — Candidate model, rationale and review package
+
+- **Date:** 2026-10-22
+- **Tool:** ChatGPT, read-only GitHub checks, and local Mermaid validation
+- **Related commits:** 2004e79 is the last verified remote checkpoint.
+  This candidate package has not yet been committed by the student.
+- **What I asked for:** Check the installed annotations and guide the next
+  assignment stage with complete, usable files.
+- **What it produced:** One Mermaid class diagram in Markdown, the two
+  required sequence diagrams, an eight-part rationale, a coverage and
+  operation audit, a study guide, a validation record, and updated README,
+  disclosure and progress files.
+- **Assistant modelling decisions:** Asset interface; individually issued
+  contracts distinct from listed definitions; a private signed payoff
+  coefficient; rejecting default lifecycle states; exchange threshold
+  policy; an owning ledger for atomic paired changes; deterministic
+  eligible writer selection with unit re-pairing; a registry boundary.
+- **Alternatives rejected:** Right-enum switches outside construction;
+  duplicate CallOption/PutOption operations; universal Asset lifecycle;
+  independent balance updates; multiple inheritance for has-a relations.
+- **What the assistant corrected during preparation:** Mermaid treats
+  semicolons in sequence notes as statement separators, so they were
+  replaced with commas. Long method declarations were shortened to
+  parameter names, with the types documented beneath the class diagram.
+  A definition cache was added so equivalent listings share assignment pools.
+- **Assistant verification:** Parsed and rendered all three Mermaid blocks;
+  reviewed renderings; checked that every sequence call names an operation
+  in the class model with the matching argument count; checked all eight
+  rationale headings and the archive contents. No market simulation was
+  written or executed.
+- **Additional formula reference:** MIT OpenCourseWare standard call/put
+  expressions were consulted only to check that the proposed signed BSM
+  expression can avoid a kind switch. Requirements still come from the
+  assignment domain document; the source gap is explicitly recorded.
+- **Student verification and changes:** Pending. The architecture, diagrams
+  and rationale were drafted by ChatGPT. The student must understand,
+  review and, where necessary, revise them before submission. The record
+  does not claim independent student design choices or completed exam practice.
+- **Material limitations:** Individual-unit rather than bulk contracts;
+  restricted feasible re-pairing policy; no netting or failed delivery;
+  on-time expiry assumed; chosen threshold and day count. These are
+  explained in rationale.md rather than hidden.
 
 ## Where the agent or tool workflow needed correction
 

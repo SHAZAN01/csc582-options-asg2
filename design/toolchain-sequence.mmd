@@ -1,8 +1,0 @@
-sequenceDiagram
-    participant Account
-    participant Position
-    participant Stock
-    Account->>Position: value()
-    Position->>Stock: value()
-    Stock-->>Position: spot
-    Position-->>Account: totalValue

@@ -2,89 +2,78 @@
 
 Student submission name: Shazan Ansar
 Due: Friday, October 23, 2026, at 5:30 PM
+Local repository: ~/csc582-options
+GitHub repository: SHAZAN01/csc582-options-asg2
 
-## Working rules
+## Verified remote checkpoint
 
-- Work in ~/csc582-options.
-- Preserve the original download in ~/csc582-asg2-distribution.
-- The repository is currently public at the student's request.
-- The handout says not to share the model or rationale with other students;
-  private visibility is recommended.
-- Submit Mermaid source and Markdown prose.
-- Keep munger.py unchanged.
-- Record significant AI assistance in AI_USAGE.md.
-- Update this checklist as work is completed.
-- Commit meaningful changes and push them to GitHub.
-- Generated bundles are excluded from Git.
-- In-class work must be completed with AI assistance off.
+Commit 2004e79 is on GitHub. History checked on October 22 contains:
 
-## Verified progress
+| Commit | Pacific date | Work |
+|---|---|---|
+| 6b8215d | October 21 | Verified distributed package and independent repository |
+| 9f0d1a8 | October 21 | AI disclosure and Mermaid walkthrough work |
+| fa741a9 | October 21 | Progress checklist and bundle exclusion |
+| 2004e79 | October 22 | Installed full domain annotations and companion updates |
+
+This is four actual commits on two distinct days. The requirement for at
+least 20 meaningful commits on seven days is not satisfied. Preserve real
+history; do not manufacture dates or claim completed work that was not done.
+Recount after subsequent real changes and before submission.
+
+## Completed preparation
 
 - [x] Git and Python work on the Mac.
-- [x] All distributed package checksums passed.
-- [x] Created an independent local repository.
-- [x] Initial commit: 6b8215d.
-- [x] Generated and inspected the rehearsal take-home bundle.
-- [x] Renamed the AI disclosure template to AI_USAGE.md.
-- [x] Practice sequence diagram rendered successfully.
-- [x] Committed practice work: 9f0d1a8.
-- [x] Added progress tracking and bundle exclusion: fa741a9.
-- [x] Verified the first GitHub push and all three commits.
-- [x] Prepared a complete AI-assisted annotated document for local installation.
+- [x] Original distributed checksums passed.
+- [x] The independent repository and first GitHub push were verified.
+- [x] The rehearsal bundle was generated and inspected.
+- [x] The annotated domain document was installed and pushed as 2004e79.
+- [x] AI assistance is disclosed.
+- [x] A complete candidate class model is drafted.
+- [x] Both required candidate sequence diagrams are drafted.
+- [x] The rationale answers all eight questions and records alternatives and misfits.
+- [x] The coverage/operation audit and study guide are drafted.
+- [x] Candidate Mermaid source parsing and local rendering passed.
+- [x] Sequence calls were checked against class operation names and arities.
 
-## Remaining work, in order
+These checks describe the downloaded candidate package, not an already
+installed or student-reviewed final submission.
 
-- [ ] Complete class-diagram rendering verification.
-- [ ] Install and inspect the downloaded three-file update.
-- [ ] Read and review the AI-assisted annotations, especially sections 2-6.
-- [ ] Revise any annotation that does not reflect the student's understanding.
-- [ ] Commit and push the reviewed annotated document and companion files.
-- [x] Flag source gaps and ambiguities as annotation candidates.
-- [ ] Resolve and justify modelling assumptions in the final rationale.
-- [ ] Choose the ownership and position abstractions.
-- [ ] Choose how call/put variation is represented in one place.
-- [ ] Model holder/writer consistency and balanced positions.
-- [ ] Model contract lifecycle and terminal-state restrictions.
-- [ ] Model exercise, assignment, and exchange expiry rules.
-- [ ] Model intrinsic value and valuation before expiry.
-- [ ] Model the construction boundary.
-- [ ] Complete the final Mermaid class diagram.
-- [ ] Complete the call-at-expiry sequence diagram.
-- [ ] Complete the put-before-expiry valuation sequence diagram.
-- [ ] Check every sequence call against the class operations.
-- [ ] Audit every operation against the no-kind-tests rule.
-- [ ] Answer all eight rationale questions.
-- [ ] Explain at least two rejected alternatives and the misfits.
-- [ ] Replace the distributed README with the repository guide.
-- [ ] Remove temporary walkthrough sketches after replacement.
-- [ ] Update AI_USAGE.md throughout the work.
-- [ ] Render and inspect all three final diagrams.
-- [ ] Audit actual commit count and distinct working days.
-- [ ] Recheck the unchanged munger.py digest.
-- [ ] Generate and inspect the final take-home bundle.
+## Next actions, in order
+
+- [ ] Back up the current README, AI disclosure, progress file and design folder.
+- [ ] Install the model package into ~/csc582-options.
+- [ ] Remove the two temporary toolchain-*.mmd sketches after installation.
+- [ ] Read design/study-guide.md and the actual diagrams and rationale together.
+- [ ] Review the individual-contract and assignment re-pairing choices.
+- [ ] Correct any design statement that the student cannot explain or defend.
+- [ ] Record actual student revisions or retained choices in AI_USAGE.md.
+- [ ] Commit and push the reviewed package.
+- [ ] Verify the three Markdown diagrams render on GitHub.
+- [ ] Recheck diagram/rationale/audit consistency after any revision.
+- [ ] Recheck munger.py digest against the published value.
+- [ ] Inspect actual commit count and distinct working days.
+- [ ] Generate a fresh take-home bundle using the same name and student ID.
+- [ ] Inspect all metadata, history and required source files in that bundle.
+- [ ] Check that FILES NOT BUNDLED contains only the supplied PDF and figures.
 - [ ] Upload the take-home bundle before the deadline.
-- [ ] Practise explaining and extending the submitted model.
+- [ ] Practise tracing and extending the model without AI.
 
-## Current limitations
+## Source of truth and constraints
 
-The class importer omitted operations and relationship details.
-The original class Mermaid source is retained; full verification is pending.
+The committed files in this repository are authoritative. An older pasted
+attachment may be unannotated; it does not override the corrected commit.
 
-The last confirmed remote checkpoint is fa741a9: three commits on
-October 21 in Pacific time. This downloadable update has not yet been
-committed or pushed. Recount actual commits and distinct days before submission.
-The requirement for 20 commits across seven days is not yet satisfied.
-Preserve genuine history and report the actual count.
+The repository is currently public at the student's request. The handout
+says not to share the model/rationale with other students; private visibility
+is recommended. Repository visibility does not replace the local history
+or text-bundle submission.
 
-The complete annotated document was prepared by ChatGPT on October 22.
-Its original prose is preserved, and added notes are visibly delimited.
-Student review and local installation are pending. No unaided reading pass,
-completed final model, or in-class performance is claimed.
+munger.py remains unchanged. Generated bundles are ignored by Git. This
+package contains only Markdown prose and Mermaid blocks, not executable
+market code. The final in-class extension is unknown and must be completed
+in class with AI assistants off.
 
-## Next action after installing this update
-
-Read the annotations and the original paragraphs together. The final model
-still needs to express the seven coverage items in handout section 4.
-Replace the temporary sketches with one complete class diagram and the two
-required sequence diagrams, then write and cross-check the eight-part rationale.
-
+The diagrams and rationale are AI-assisted drafts. No unaided reading pass,
+independent design authorship, completed in-class practice, or particular
+grade is claimed. Student review is still required.
